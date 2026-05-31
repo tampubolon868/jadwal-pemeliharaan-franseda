@@ -1,0 +1,454 @@
+b <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jadwal Pemeliharaan Kelistrikan</title>
+
+  <!-- FULLCALENDAR -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
+
+  <style>
+/* ==========================================
+COVER RUNWAY
+========================================== */
+
+.cover{
+  width:100%;
+  height:360px;
+
+  background-image:
+  linear-gradient(
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.45)
+  ),
+
+  url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  border-radius:25px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:30px;
+
+  overflow:hidden;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.overlay{
+  text-align:center;
+  padding:20px;
+}
+
+.judul-cover{
+  font-size:38px;
+  color:white;
+  font-weight:bold;
+  margin-bottom:20px;
+  text-shadow:0 0 10px rgba(0,0,0,0.5);
+  line-height:1.4;
+  text-align:center;
+  max-width:1400px;
+  margin:auto;
+}
+ 
+.deskripsi-cover{
+  color:white;
+  font-size:20px;
+  max-width:900px;
+  margin:auto;
+  line-height:1.7;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+  .cover{
+    height:280px;
+  }
+
+  .judul-cover{
+    font-size:28px;
+  }
+
+  .deskripsi-cover{
+    font-size:15px;
+  }
+
+}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+   body{
+  font-family:Arial, sans-serif;
+  padding:20px;
+  min-height:100vh;
+
+  background-image:
+  linear-gradient(
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.65)
+  ),
+
+  url("https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?q=80&w=2070&auto=format&fit=crop");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+    .container{
+      max-width:1300px;
+      margin:auto;
+    }
+
+    h1{
+  text-align:center;
+  margin-bottom:20px;
+  color:white;
+      font-size:32px;
+    }
+
+    /* LEGEND */
+
+    .legend{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+      justify-content:center;
+      margin-bottom:20px;
+    }
+
+    .legend-item{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(15,23,42,0.85);
+color:white;
+backdrop-filter:blur(10px);
+      padding:10px 15px;
+      border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+      font-size:14px;
+      font-weight:bold;
+    }
+
+    .color-box{
+      width:18px;
+      height:18px;
+      border-radius:4px;
+    }
+
+    /* KALENDER */
+
+    #calendar{
+  background:rgba(6, 7, 11, 0.85);
+  backdrop-filter:blur(10px);
+      padding:20px;
+      border-radius:20px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    /* HEADER HARI */
+
+    .fc-col-header-cell{
+  background:#111827;
+      padding:10px;
+    }
+
+    .fc-col-header-cell-cushion{
+      color:white !important;
+      text-decoration:none !important;
+      font-weight:bold;
+    }
+
+    /* ANGKA TANGGAL */
+
+    .fc-daygrid-day-number{
+  color:white !important;
+      text-decoration:none !important;
+      font-weight:bold;
+    }
+
+    /* EVENT */
+
+    .fc-event{
+      border:none !important;
+      border-radius:6px !important;
+      padding:2px !important;
+      font-size:11px;
+      font-weight:bold;
+    }
+
+    /* TOOLBAR */
+ 
+    .fc-toolbar-title{
+  font-size:32px !important;
+  color:white !important;
+  font-weight:bold;
+  text-shadow:0 0 10px rgba(255,255,255,0.5);
+}
+
+    .fc-button{
+      background:#0d6efd !important;
+      border:none !important;
+      border-radius:8px !important;
+      padding:8px 12px !important;
+    }
+
+    .fc-button:hover{
+      background:#0b5ed7 !important;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      h1{
+        font-size:22px;
+      }
+
+      .fc-toolbar{
+        flex-direction:column;
+        gap:10px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+<!-- HEADER COVER -->
+
+<div class="cover">
+
+  <div class="overlay">
+
+    <h1 class="judul-cover">
+      DIGITAL SYSTEM FOR SCHEDULING ELECTRICAL
+MAINTENANCE ACTIVITIES AT FRANSEDA AIRPORT
+    </h1>
+
+  </div>
+
+</div>
+
+    <!-- KETERANGAN WARNA -->
+
+    <div class="legend">
+
+      <div class="legend-item">
+        <div class="color-box" style="background:green;"></div>
+        Harian
+      </div>
+
+      <div class="legend-item">
+        <div class="color-box" style="background:gold;"></div>
+        Mingguan
+      </div>
+
+      <div class="legend-item">
+        <div class="color-box" style="background:blue;"></div>
+        Bulanan
+      </div>
+
+      <div class="legend-item">
+        <div class="color-box" style="background:rgba(245, 3, 245, 0.729);"></div>
+        Triwulan
+      </div>
+
+      <div class="legend-item">
+        <div class="color-box" style="background:red;"></div>
+        Semesteran
+      </div>
+
+    </div>
+
+    <!-- KALENDER -->
+
+    <div id="calendar"></div>
+
+  </div>
+
+  <!-- FULLCALENDAR -->
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+
+  <!-- LOCALE INDONESIA -->
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/locales-all.global.min.js"></script>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const events = [];
+
+for(let bulan = 1; bulan <= 12; bulan++){
+
+  const jumlahHari = new Date(2026, bulan, 0).getDate();
+
+  for(let hari = 1; hari <= jumlahHari; hari++){
+
+    const tanggal = new Date(2026, bulan - 1, hari);
+
+    let jenis = "Harian";
+    let warna = "green";
+
+    // Mingguan (Jumat)
+    if(tanggal.getDay() === 5){
+      jenis = "Mingguan";
+      warna = "gold";
+    }
+
+    // Bulanan
+    if(hari === 28){
+      jenis = "Bulanan";
+      warna = "blue";
+    }
+
+    // Triwulan menggantikan Bulanan
+    if(hari === 28 && (bulan === 3 || bulan === 9)){
+      jenis = "Triwulan";
+      warna = "purple";
+    }
+
+    // Semesteran menggantikan Triwulan dan Bulanan
+    if(hari === 28 && (bulan === 6 || bulan === 12)){
+      jenis = "Semesteran";
+      warna = "red";
+    }
+
+    events.push({
+      title: jenis,
+      start: `2026-${String(bulan).padStart(2,'0')}-${String(hari).padStart(2,'0')}`,
+      color: warna
+    });
+
+  }
+
+}
+      const calendarEl = document.getElementById('calendar');
+
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+
+        locale: 'id',
+
+        initialView: 'dayGridMonth',
+
+        firstDay: 1,
+
+        height: 'auto',
+
+        buttonText:{
+          today:'Hari Ini'
+        },
+
+        customButtons: {
+
+          tombolBulan: {
+            text: 'Bulan',
+            click: function() {
+              calendar.changeView('dayGridMonth');
+            }
+          },
+
+          tombolMinggu: {
+            text: 'Minggu',
+            click: function() {
+              calendar.changeView('timeGridWeek');
+            }
+          }
+
+        },
+
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'tombolBulan,tombolMinggu'
+        },
+
+        dayHeaderFormat: {
+          weekday: 'long'
+        },
+
+        events: events,
+
+        // ==========================================
+        // KLIK EVENT
+        // ==========================================
+
+        eventClick: function(info){
+
+          alert(
+
+`JADWAL PEMELIHARAAN
+
+Tanggal :
+${info.event.start.toLocaleDateString('id-ID')}
+
+Jenis Pemeliharaan :
+${info.event.title}
+
+================================================
+
+1. AIRSIDE LIGHTING
+
+• Check Taxiway dan Runway Edge Light
+• Check Taxi Guidance Sign
+• Check RTIL (Runway Threshold Identification Light)
+• Check PAPI (Presision Approah Path Indicator)
+• Check Runway End
+• Check Threshold
+• Check Wind Cone
+---------------------------------------
+2. POWER HOUSE & ELECTRICAL SYSTEM
+
+• Check Generator Set
+• Check Constan Current Regulator (CCR)
+• Monitoring Distribusi Aliran Listrik
+• Kubikel Tegangan Menengah (TM)
+• Trafo Step down
+--------------------------------------
+3. TERMINAL BUILDING
+
+• Check Lampu Penerangan Terminal
+• Check Conveyor Terminal
+• Check AC Terminal
+• Check Flood Light
+--------------------------------------
+4. UTILITY SYSTEM
+
+• Check Motor Pompa`
+
+          );
+
+        }
+
+      });
+
+      calendar.render();
+
+    });
+
+  </script>
+
+</body>
+</html>
